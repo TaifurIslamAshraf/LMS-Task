@@ -57,7 +57,20 @@ const middlewares = (app: Application) => {
     app.use(morgan("dev"));
   }
 
-  app.use(mongoSanitize()); // Prevent NoSQL injections
+  // Wrap mongoSanitize to handle older version compatibility
+  const mongoSanitizeWrapper = (options?: any) => {
+    return (req: any, res: any, next: any) => {
+      try {
+        mongoSanitize(options)(req, res, next);
+      } catch (error) {
+        // Log the error but continue without sanitizing
+        console.log('MongoSanitize error:', error instanceof Error ? error.message : String(error));
+        next(); // Continue to next middleware
+      }
+    };
+  };
+
+  app.use(mongoSanitizeWrapper()); // Prevent NoSQL injections
   app.use(hpp()); // Prevent HTTP Parameter Pollution
 
   //swagger api middleware

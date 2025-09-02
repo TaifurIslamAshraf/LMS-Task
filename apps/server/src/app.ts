@@ -1,6 +1,6 @@
 import globalErrorhandler from "@/app/middlewares/globalErrorHandler";
 import { notFoundRoute } from "@/app/middlewares/notFoundRoute";
-import express, { Application, Response } from "express";
+import express, { Application } from "express";
 import os from "os";
 
 import middlewares from "@/app/config/middlewares";
@@ -11,12 +11,12 @@ const app: Application = express();
 middlewares(app);
 
 // test endpint
-app.use("/api/v1", (_, res: Response) => {
-  res.status(200).json({
-    success: true,
-    message: "Server Working !",
-  });
-});
+// app.use("/api/v1", (_, res: Response) => {
+//   res.status(200).json({
+//     success: true,
+//     message: "Server Working !",
+//   });
+// });
 
 app.get("/health", async (req, res) => {
   const healthcheck = {
