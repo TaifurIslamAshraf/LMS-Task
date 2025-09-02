@@ -33,11 +33,22 @@ const fileFilter = (
   file: Express.Multer.File,
   cb: FileFilterCallback
 ) => {
-  // Define acceptable file types
-  const fileFormate = config.upload.imageFormat;
-  const acceptableTypes = [...JSON.parse(fileFormate as string)];
+  // Define acceptable file types for images
+  const imageFormate = config.upload.imageFormat;
+  const acceptableImageTypes = imageFormate ? [...JSON.parse(imageFormate)] : [];
 
-  if (acceptableTypes.includes(file.mimetype)) {
+  // Define acceptable file types for general files (e.g., documents)
+  const acceptableFileTypes = [
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'text/plain',
+    // Add more as needed
+  ];
+
+  const allAcceptableTypes = [...acceptableImageTypes, ...acceptableFileTypes];
+
+  if (allAcceptableTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
     cb(new ApiError(httpStatus.BAD_REQUEST, "Unsupported file type"));
