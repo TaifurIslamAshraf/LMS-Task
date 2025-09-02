@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
+    "importHelpers": true,
+    "importsNotUsedAsValues": "remove",
+
+    /* Strict Type Checking */
+    "strict": true, // Changed to false to be less strict
+    "noImplicitAny": true, // Allow implicit any
+    "strictNullChecks": true, // Don't check for null/undefined
+    "noUnusedLocals": true, // Don't error on unused locals
+    "noUnusedParameters": false, // Don't error on unused parameters
+    "noFallthroughCasesInSwitch": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+    "checkJs": true,
+
+    /* Module Resolution */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@test/*": ["../test/*"],
+      "@config/*": ["config/*"],
+      "@controllers/*": ["controllers/*"],
+      "@models/*": ["models/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    /* Advanced */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "coverage", "**/*.test.ts"]
+}
