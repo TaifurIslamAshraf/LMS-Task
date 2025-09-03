@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import { AnyZodObject, ZodEffects } from "zod";
+import { ZodTypeAny } from "zod";
 import fileDelete from "../utils/fileDelete";
 
 const validateRequest =
-  (schema: AnyZodObject | ZodEffects<AnyZodObject>) =>
+  (schema: ZodTypeAny) =>
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       await schema.parseAsync({

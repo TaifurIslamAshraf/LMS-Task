@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "@workspace/ui/globals.css"
 import { Providers } from "@/components/providers"
 import { Metadata } from "next"
-import ReduxProvider from "@/redux/ReduxProvider"
+import ReduxProvider from "../redux/ReduxProvider"
 import { Toaster } from "react-hot-toast"
 
 const fontSans = Geist({

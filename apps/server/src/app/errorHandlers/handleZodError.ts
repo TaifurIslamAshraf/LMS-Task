@@ -4,7 +4,7 @@ import { TErrorMessage, TIErrorResponse } from "../../types/error";
 
 const handleZodError = (err: ZodError): TIErrorResponse => {
   const errorMessages: TErrorMessage[] = err.issues?.map((issue: ZodIssue) => ({
-    path: `${issue?.path[issue?.path.length - 1]}`,
+    path: `${String(issue?.path[issue?.path.length - 1])}`,
     message: issue?.message,
   }));
 

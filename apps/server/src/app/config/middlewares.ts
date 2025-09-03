@@ -1,6 +1,6 @@
-import enableCrossOriginResourcePolicy from "@/app/middlewares/enableCrossOriginResourcePolicy";
-import sendResponse from "@/app/utils/sendResponse";
-import { swaggerConfigs } from "@/docs";
+import enableCrossOriginResourcePolicy from "../middlewares/enableCrossOriginResourcePolicy";
+import sendResponse from "../utils/sendResponse";
+import { swaggerConfigs } from "../../docs";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import cors, { CorsOptions } from "cors";

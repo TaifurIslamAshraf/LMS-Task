@@ -1,10 +1,10 @@
-import globalErrorhandler from "@/app/middlewares/globalErrorHandler";
-import { notFoundRoute } from "@/app/middlewares/notFoundRoute";
+import globalErrorhandler from "./app/middlewares/globalErrorHandler";
+import { notFoundRoute } from "./app/middlewares/notFoundRoute";
 import express, { Application } from "express";
 import os from "os";
 
-import middlewares from "@/app/config/middlewares";
-import router from "@/app/routes";
+import middlewares from "./app/config/middlewares";
+import router from "./app/routes";
 const app: Application = express();
 
 //all middlewares

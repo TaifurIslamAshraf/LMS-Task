@@ -5,8 +5,17 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "start": "turbo run start",
+    "start:all": "turbo run start",
+    "dev:all": "turbo dev",
+    "dev:production": "pnpm run build && pnpm run start",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "start:server": "cd apps/server && npm start",
+    "dev:server": "cd apps/server && npm run dev",
+    "dev:client": "cd apps/client && npm run dev",
+    "dev:admin": "cd apps/admin && npm run dev",
+    "prod:all": "connection npm run build && pnpm run start:all"
   },
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",

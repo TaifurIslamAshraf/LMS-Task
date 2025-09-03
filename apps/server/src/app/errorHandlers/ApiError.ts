@@ -1,4 +1,4 @@
-import { TErrorMessage } from "@/types/error";
+import { TErrorMessage } from "../../types/error";
 
 class ApiError extends Error {
   statusCode: number;
